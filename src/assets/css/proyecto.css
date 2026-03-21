@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'LarsseitBold';
+  src: url('../fonts/LarsseitBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitMedium';
+  src: url('../fonts/LarsseitMedium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitLight';
+  src: url('../fonts/LarsseitLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.proyecto {
+  padding: 40px 40px;
+  background: #fff;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+}
+
+/* Contenedor interno para alinear con el navbar */
+.proyecto__container {
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.proyecto__content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* Cambiado de space-between a flex-start */
+  gap: 250px; /* Reducido el gap */
+  margin-bottom: 50px;
+  align-items:flex-start;
+}
+
+.proyecto__title {
+  flex-shrink: 0; /* Evita que el título se encoja */
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+  font-family: 'LarsseitMedium', sans-serif;
+  width: 120px; /* Ancho fijo para el título */
+}
+
+.proyecto__text {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 0.8rem;
+  color: #222;
+  font-family: 'LarsseitMedium', sans-serif;
+  flex-wrap: wrap; /* Permite que las imágenes se envuelvan */
+}
+
+.proyecto_card img {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+.proyecto_card img:hover {
+  filter: opacity(0.6);
+}
+
+.proyecto_card {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.proyecto_card h3 {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-family: 'LarsseitMedium', sans-serif;
+}
+
+
+
+/* ===== MEDIA QUERIES PARA PANTALLAS PEQUEÑAS ===== */
+
+
+/* Móviles */
+@media (max-width: 768px) {
+  .proyecto {
+    padding: 80px 20px;
+  }
+  
+  .proyecto__content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  
+  .proyecto__title {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  
+  .proyecto__text {
+    width: 100%;
+    font-size: 14px;
+    text-align: justify;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .proyecto_card {
+    width: 100%;
+  }
+  
+  .proyecto_card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+

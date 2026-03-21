@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'LarsseitBold';
+  src: url('../fonts/LarsseitBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitMedium';
+  src: url('../fonts/LarsseitMedium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitLight';
+  src: url('../fonts/LarsseitLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.proyecto-detalle {
+  background: #fff;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+}
+.proyecto-detalle__info {
+    padding-top: 150px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.proyecto-detalle__info h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'LarsseitMedium', sans-serif;
+
+}
+.proyecto-detalle__info p {
+    font-family: 'LarsseitLight', sans-serif;
+}
+
+.proyecto-detalle img {
+    width: 100%;
+}
+.proyecto-detalle__meta {
+    padding: 100px 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 100px;
+}
+.division{
+  padding: 50px 40px;
+}
+    
+
+.ficha{
+    width: 40%;
+    font-size: 13px;
+}
+.title_ficha{
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'LarsseitMedium', sans-serif;
+}
+.ficha_text{
+    font-family: 'LarsseitLight', sans-serif;
+}
+.descripcion_proyecto{
+    text-align: justify;
+    width: 60%;
+    white-space: pre-line;
+    font-size: 13px;
+    font-family: 'LarsseitLight', sans-serif;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .proyecto-detalle__info {
+    padding-top: 150px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 40px;
+    flex-direction: column; /* apilar verticalmente */
+  }
+  .proyecto-detalle__info h1 {
+    margin: 0px
+  }
+  .proyecto-detalle__info p {
+    margin-top: 5px;
+  }
+  .proyecto-detalle__meta {
+    padding: 80px 25px;
+    flex-direction: column; /* apilar verticalmente */
+    gap: 25px;
+  }
+  .ficha{
+    width: 100%;
+}
+.descripcion_proyecto{
+    text-align: justify;
+    width: 100%;
+    white-space: pre-line;
+}
+}

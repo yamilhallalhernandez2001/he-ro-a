@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'LarsseitBold';
+  src: url('../fonts/LarsseitBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitMedium';
+  src: url('../fonts/LarsseitMedium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitLight';
+  src: url('../fonts/LarsseitLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nosotros {
+  padding: 120px 40px;
+  background: #fff;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.nosotros__content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* título izquierda, texto derecha */
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.nosotros__title {
+  flex: 1; /* columna izquierda */
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+  width: 40%;
+  font-family: 'LarsseitMedium', sans-serif;
+}
+strong {
+    font-family: 'LarsseitMedium', sans-serif;
+    font-weight: 700;
+}
+
+.nosotros__text {
+  flex: 2; /* columna derecha */
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 13px;
+  color: #222;
+  width: 60%;
+  font-family: 'LarsseitLight', sans-serif;
+}
+.nosotros__text a {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .nosotros__content {
+    flex-direction: column; /* apilar verticalmente */
+    gap: 20px;
+    text-align: left;
+  }
+  .nosotros__title{
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  .nosotros__text {
+    width: 100%;
+    font-size: 14px;
+    text-align: justify;
+  }
+  .nosotros {
+    padding: 80px 20px;
+  }
+
+}

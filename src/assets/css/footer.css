@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'LarsseitBold';
+  src: url('../fonts/LarsseitBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitMedium';
+  src: url('../fonts/LarsseitMedium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitLight';
+  src: url('../fonts/LarsseitLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 40px 40px;
+  flex-wrap: wrap; /* para que sea responsivo */
+  font-family: 'LarsseitLight', sans-serif;
+}
+
+.footer__social a {
+  color: #333;
+  font-size: 13px;
+  margin-right: 16px;
+}
+
+.footer__social a:hover {
+  color: #007bff; /* color al pasar el mouse */
+}
+
+.footer__info {
+  text-align: right;
+  color: #333;
+  font-size: 13px;
+}
+
+.footer__info p {
+  margin: 4px 0;
+}
+
+/* Responsive: móviles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 80px 20px;
+  }
+}

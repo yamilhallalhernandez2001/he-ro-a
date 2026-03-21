@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'LarsseitBold';
+  src: url('../fonts/LarsseitBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitMedium';
+  src: url('../fonts/LarsseitMedium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LarsseitLight';
+  src: url('../fonts/LarsseitLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.contacto {
+  padding: 120px 40px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  box-sizing: border-box;
+}
+.title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #222;
+  font-family: 'LarsseitBold', sans-serif;
+}
+
+/* Info del contacto */
+.contacto__info {
+  text-align: right;
+  font-size: 13px;
+  line-height: 0rem;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'LarsseitLight', sans-serif;
+  gap: 8px;
+  padding: 10px;
+}
+
+/* Nombre destacado */
+.contacto__nombre {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-family: 'LarsseitBold', sans-serif;
+}
+
+/* Separador entre dirección y contacto */
+.contacto__separador {
+  height: 1px;
+  background: #ccc;
+  margin: 12px 0; /* separación visual */
+  width: 100%;
+  align-self: flex-end; /* alineado a la derecha */
+}
+
+/* Correo como link */
+.contacto__link {
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contacto__link:hover {
+  color: #555;
+}
+/* Dirección más compacta */
+.contacto__direccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* menos espacio entre líneas de dirección */
+  margin-bottom: 2px; /* opcional, pequeño margen antes del separador */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contacto {
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+    padding: 80px 20px;
+  }
+
+  .contacto__info {
+    text-align: right;
+    max-width: 100%;
+    gap: 6px;
+  }
+
+  .contacto__separador {
+    align-self: center;
+    width: 100%;
+  }
+}
