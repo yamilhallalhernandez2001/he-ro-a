@@ -4,10 +4,11 @@ import '../assets/css/inicio.css';
 import img1 from '../assets/img/inicio/1.webp';
 import img2 from '../assets/img/inicio/2.webp';
 import img3 from '../assets/img/inicio/3.webp';
+import img4 from '../assets/img/inicio/4.webp';
 
 
 function Inicio() {
-  const images = [img1, img2, img3];
+  const images = [img1, img2, img3, img4];
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {

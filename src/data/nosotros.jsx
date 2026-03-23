@@ -22,7 +22,13 @@ export const nosotrosContent = {
           { text: "Arco 17 by HE RO A", url: "https://www.re-thinkingthefuture.com/architecture/cultural/10329-arco-17-by-heroa/" },
           { text: "Pavilion NBNN by HeroAzano (HE RO A + Azano Moritani)", url: "https://www.re-thinkingthefuture.com/temporary-structure/12350-pavilion-nbnn-by-heroazano-he-ro-a-azano-moritani/" }
         ]
-      }
+      },
+      {
+        outlet: "Architizer",
+        links: [
+          { text: "MESINA 3190 - HE RO A", url: "https://architizer.com/projects/mesina-3190/" }
+        ]
+      },
     ]
   },
   en: {

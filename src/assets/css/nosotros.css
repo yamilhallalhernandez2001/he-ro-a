@@ -18,11 +18,18 @@
 }
 
 .nosotros {
-  padding: 120px 40px;
+  padding: 140px 40px;
   background: #fff;
   min-height: calc(100vh - 80px);
   box-sizing: border-box;
-  width: 100%;
+}
+
+.nosotros__publication{
+  margin-bottom: 10px;
+}
+
+h2{
+  margin: 0px;
 }
 
 .nosotros__content {
@@ -54,6 +61,7 @@ strong {
   color: #222;
   width: 60%;
   font-family: 'LarsseitLight', sans-serif;
+  margin: 0px;
 }
 .nosotros__text a {
     color: #000;
