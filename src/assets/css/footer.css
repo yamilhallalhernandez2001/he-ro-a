@@ -49,11 +49,7 @@
   line-height: 1;
 }
 
-.footer__info p span {
-  font-size: 25px;
-  vertical-align: middle;
-  padding-top: 3px;
-}
+
 
 /* Responsive: móviles */
 @media (max-width: 768px) {
@@ -61,10 +57,6 @@
     padding: 80px 20px;
   }
   
-  .footer__info p span {
-    font-size: 25px;
-    vertical-align: middle;
-    padding-top: 3px;
-  }
+
   
 }
