@@ -1,31 +1,40 @@
 import React from 'react';
 import '../assets/css/contacto.css';
+import { useLanguage } from '../hooks/useLanguage';
+import { contactoContent } from '../data/contacto';
 
 function Contacto() {
+  const language = useLanguage();
+  const content = contactoContent[language] || contactoContent.es;
+
   return (
     <section className="contacto">
-      <div>
-      </div>
+      <div></div>
 
       <div className="contacto__info">
-        {/* Nombre / Empresa */}
-        <p className="contacto__nombre"><strong>HE RO A</strong></p>
+        {/* Nombre */}
+        <p className="contacto__nombre">
+          <strong>{content.nombre}</strong>
+        </p>
 
+        {/* Dirección dinámica */}
         <div className="contacto__direccion">
-            <p>Volcán Jorullo 2157</p>
-            <p>Colonia Colli Urbano</p>
-            <p>45070, Guadalajara, México</p>
+          {content.direccion.map((linea, idx) => (
+            <p key={idx}>{linea}</p>
+          ))}
         </div>
 
-        {/* Separador */}
         <hr />
-        {/* Correo y teléfono */}
+
+        {/* Email */}
         <p>
-          <a href="mailto:info@he-ro-a.com" className="contacto__link">
-            info@he-ro-a.com
+          <a href={`mailto:${content.email}`} className="contacto__link">
+            {content.email}
           </a>
         </p>
-        <p>+52 (33) 3326 0003</p>
+
+        {/* Teléfono */}
+        <p>{content.telefono}</p>
       </div>
     </section>
   );

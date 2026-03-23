@@ -16,7 +16,7 @@ function Footer() {
         {/* <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedinIn /></a> */}
       </div>
       <div className="footer__info">
-        <p>© 2025 HE RO A</p>
+        <p><span>©</span> 2025 HE RO A</p>
       </div>
     </footer>
   );
