@@ -32,6 +32,7 @@ import nbnn5 from '../assets/img/proyectos/pabellon_nbnn/galeria/nbnn5.webp';
 import nbnn6 from '../assets/img/proyectos/pabellon_nbnn/galeria/nbnn6.webp';
 import nbnn7 from '../assets/img/proyectos/pabellon_nbnn/galeria/nbnn7.webp';
 import nbnn8 from '../assets/img/proyectos/pabellon_nbnn/galeria/nbnn8.webp';
+import nbnn9 from '../assets/img/proyectos/pabellon_nbnn/galeria/nbnn9.webp';
 
 
 // IMAGENES PLANIMETRIA PABELLON NBNN
@@ -65,7 +66,7 @@ const proyectosInfoEs = [
         title: "PABELLÓN NBNN",
         description: "HeroAzano (HE RO A + Azano Moritani)",
         image: img1,
-        galeria: [nbnn7, nbnn8, nbnn6, nbnn1, nbnn2, nbnn3, nbnn4, nbnn5],
+        galeria: [nbnn7, nbnn8, nbnn6, nbnn1, nbnn9, nbnn2, nbnn3, nbnn4, nbnn5],
         planimetria: [plan_nbnn1, plan_nbnn2, plan_nbnn3, plan_nbnn4],
         ubicacion: "Guadalajara, JAL, MX",
         fecha: "2025",
@@ -99,7 +100,7 @@ const proyectosInfoEn = [
         title: "NBNN PAVILION",
         description: "HeroAzano (HE RO A + Azano Moritani)",
         image: img1,
-        galeria: [nbnn2, nbnn3, nbnn4, nbnn5, nbnn6, nbnn7, nbnn8],
+        galeria: [nbnn7, nbnn8, nbnn6, nbnn1, nbnn9, nbnn2, nbnn3, nbnn4, nbnn5],
         planimetria: [plan_nbnn1, plan_nbnn2, plan_nbnn3, plan_nbnn4],
         ubicacion: "Guadalajara, JAL, MX",
         fecha: "2025",
