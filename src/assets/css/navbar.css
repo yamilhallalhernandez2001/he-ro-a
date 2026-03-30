@@ -253,9 +253,9 @@
 /* ===== RESPONSIVE ===== */
 
 /* Pantallas muy pequeñas */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .navbar {
-    padding: 16px 20px;
+    padding: 25px 20px;
   }
   
   .navbar--scrolled {
