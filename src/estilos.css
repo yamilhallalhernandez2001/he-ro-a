@@ -41,6 +41,10 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: #fff; color: #000; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* el iPhone no cambia el tamaño de la letra por su cuenta */
+/* Sin barra de desplazamiento: todo se mueve por pantallas (rueda, trackpad, dedo, teclado), y así
+   el ancho de la página es siempre el mismo y nada se reacomoda al cambiar de página. */
+html { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
 body {
   font-family: Arial, 'Liberation Sans', sans-serif;
   font-size: var(--t3); line-height: 1.55;
@@ -143,7 +147,7 @@ html.tras-salida .aparecer > :not(.cabecera):not(.pie):not(.entrada__rotulo) { a
 .archivo__indice { min-height: 100svh; display: flex; flex-direction: column; padding-top: calc(var(--cabecera) + var(--e2)); }
 .archivo__indice > .pie { margin-top: auto; }
 .archivo__indice > .indice { margin-bottom: var(--e3); }
-.campo { position: relative; flex: 1; min-height: 0; touch-action: manipulation; }
+.campo { position: relative; flex: 1; min-height: 0; touch-action: manipulation; will-change: transform; }   /* una sola capa: al deslizar, el teléfono mueve el campo entero sin redibujar cada imagen */
 .campo__pieza { position: absolute; left: 0; top: 0; padding: 0; transition: opacity .35s ease; }
 .campo__pieza img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
 .campo__pieza--imagen img { object-fit: cover; }
@@ -199,8 +203,10 @@ html.tras-salida .aparecer > :not(.cabecera):not(.pie):not(.entrada__rotulo) { a
 /* ── Visor ────────────────────────────────── */
 .visor { position: fixed; inset: 0; z-index: 200; background: #fff; animation: aparecer .6s cubic-bezier(.65,0,.35,1) both; }
 .visor__imagen img { animation: aparecer .6s cubic-bezier(.65,0,.35,1) both; }
-.visor__barra { position: absolute; inset: 0 0 auto 0; height: var(--cabecera); display: flex; justify-content: space-between; align-items: center; padding: 0 var(--margen); z-index: 2; }
-.visor__imagen { position: absolute; inset: var(--cabecera) var(--margen) var(--margen); }
+/* Visor: "Registro 03 / 16" y "Cerrar" arriba, con el margen de la página; la imagen empieza
+   un espacio --e2 debajo. Mismos espacios que el resto del sitio (teléfono: 70 %, margen la mitad). */
+.visor__barra { position: absolute; inset: 0 0 auto 0; height: calc(var(--margen) + var(--rotulo)); display: flex; justify-content: space-between; align-items: flex-end; padding: 0 var(--margen); z-index: 2; }
+.visor__imagen { position: absolute; inset: calc(var(--margen) + var(--rotulo) + var(--e2)) var(--margen) var(--margen); }
 .visor__imagen img { width: 100%; height: 100%; object-fit: contain; }
 .visor__ant, .visor__sig { position: absolute; top: 0; bottom: 0; width: 50%; }
 .visor__ant { left: 0; cursor: w-resize; }
