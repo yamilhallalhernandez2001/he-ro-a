@@ -1,0 +1,26 @@
+{
+  "orden": 1,
+  "nombre": {
+    "es": "Mesina 3190",
+    "en": "Mesina 3190"
+  },
+  "colaboracion": {
+    "es": "",
+    "en": ""
+  },
+  "ubicacion": {
+    "es": "Guadalajara, JAL, MX",
+    "en": "Guadalajara, JAL, MX"
+  },
+  "fecha": "2025",
+  "tipologia": {
+    "es": "Vivienda Colectiva",
+    "en": "Collective Housing"
+  },
+  "area": "653.39 m²",
+  "estatus": {
+    "es": "En construcción",
+    "en": "Under construction"
+  },
+  "idAnterior": 2
+}

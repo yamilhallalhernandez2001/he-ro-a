@@ -1,0 +1,26 @@
+{
+  "orden": 2,
+  "nombre": {
+    "es": "Pabellón NBNN",
+    "en": "NBNN Pavilion"
+  },
+  "colaboracion": {
+    "es": "HE RO A + Azano Moritani",
+    "en": "HE RO A + Azano Moritani"
+  },
+  "ubicacion": {
+    "es": "Guadalajara, JAL, MX",
+    "en": "Guadalajara, JAL, MX"
+  },
+  "fecha": "2025",
+  "tipologia": {
+    "es": "Cultural",
+    "en": "Cultural"
+  },
+  "area": "16 m²",
+  "estatus": {
+    "es": "Construido y exhibido",
+    "en": "Built and exhibited"
+  },
+  "idAnterior": 3
+}

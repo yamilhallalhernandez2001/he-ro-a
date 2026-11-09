@@ -1,0 +1,17 @@
+{
+  "correo": "info@he-ro-a.com",
+  "telefono": "+52 (33) 3326 0003",
+  "instagram": "https://www.instagram.com/he.ro.a",
+  "direccion": {
+    "es": [
+      "Volcán Jorullo 2157",
+      "Colonia Colli Urbano",
+      "45070 Guadalajara, México"
+    ],
+    "en": [
+      "2157 Volcán Jorullo",
+      "Colli Urbano",
+      "45070 Guadalajara, Mexico"
+    ]
+  }
+}

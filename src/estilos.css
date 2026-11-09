@@ -1,0 +1,227 @@
+/* ─────────────────────────────────────────────────────────────
+   HE RO A — estilos
+   Una sola línea de diseño en todo el sitio:
+   · Blanco y negro, sin líneas, Arial.
+   · Retícula de dos mitades (.dos): la mitad derecha empieza exactamente en el
+     trazo de la "R" de la cabecera (--linea-ro, lo mide lib/optica.js).
+   · Misma cabecera y mismo pie en todas las páginas.
+   · Dos tamaños de letra:
+       --t1  HE RO A (inicio y cabecera)
+       --t3  todo lo demás; los títulos solo cambian a negrita
+   · Mayúsculas solo en HE RO A; todo lo demás en minúsculas normales.
+   · Tres espacios verticales:
+       --e1  entre elementos de una lista y entre párrafos
+       --e2  entre bloques o temas, y entre la cabecera y el contenido
+       --e3  entre el contenido y el pie
+       --e4  en una entrada, antes y después del carrusel (tres veces --e2)
+   · Teléfono: todos los espacios son el 70 % de los de la computadora (redondeados);
+     el margen de la página es la mitad (20 en vez de 40) porque la pantalla es angosta,
+     y la letra pasa de 13 a 12 px.
+       computadora  e1 14 · e2 56 · e3 72 · e4 168 · hueco 20 · margen 40
+       teléfono     e1 10 · e2 40 · e3 50 · e4 120 · hueco 14 · margen 20
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --t1: clamp(44px, min(9.5vw, 15vh), 160px);   /* también según el alto: en laptops bajas la cabecera no se come las imágenes */
+  --t3: 13px;
+  --e1: 14px;
+  --e2: 56px;
+  --e3: 72px;           /* entre el contenido y el pie, en todas las páginas */
+  --e4: calc(3 * var(--e2));  /* en una entrada: entre la ficha y el carrusel, y entre el carrusel y la navegación */
+  --rotulo: 20px;       /* línea de "Registro 03 / 16" bajo las imágenes de una entrada */
+  --caja: 500px;        /* alto de la caja de imágenes de una entrada (lo calcula Entrada.jsx) */
+  --caja-ultima: 400px; /* alto de la caja del último registro (lo calcula Entrada.jsx) */
+  --margen: 40px;
+  --hueco: 20px;
+  --cabecera: 230px;           /* alto de la cabecera; lo mide Cabecera.jsx */
+}
+/* Arial en todos lados. Donde el sistema no la tiene (Android), se usa Liberation Sans:
+   un dibujo libre con las mismas medidas que Arial (licencia SIL OFL, en fuentes/). */
+@font-face { font-family: 'Liberation Sans'; src: local('Liberation Sans'), url('./fuentes/LiberationSans-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Liberation Sans'; src: local('Liberation Sans Bold'), local('LiberationSans-Bold'), url('./fuentes/LiberationSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fff; color: #000; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* el iPhone no cambia el tamaño de la letra por su cuenta */
+body {
+  font-family: Arial, 'Liberation Sans', sans-serif;
+  font-size: var(--t3); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: #000; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
+button { -webkit-tap-highlight-color: transparent; font: inherit; color: #000; background: none; border: 0; cursor: pointer; text-transform: inherit; letter-spacing: inherit; }
+img { display: block; }
+ul { list-style: none; }
+
+/* ── Tipografía ───────────────────────────── */
+.etiqueta, .menu a, .idioma, .pie, .visor__barra { font-size: var(--t3); }
+.titulo { font-weight: 700; font-size: var(--t3); line-height: inherit; }
+
+/* Menú e idioma: de base todo con poca opacidad (también en el inicio); solo la opción
+   actual queda resaltada. Al pasar el cursor, la opción se resalta. Sin cambiar el grosor
+   ni el tamaño de la letra. */
+.menu a, .idioma button { transition: opacity .25s ease; }   /* mismo tiempo que la salida de la página */
+.menu a:not(.is-active), .idioma button:not(.is-active) { opacity: .3; }
+.menu a:hover, .idioma button:hover { opacity: 1 !important; }
+
+/* Enlaces de texto */
+.enlace { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.enlace:hover { text-decoration-thickness: 2px; }
+.enlace-suave:hover, .pie a:hover, .navegacion a:hover, .visor__barra button:hover, .indice__entrada:hover .titulo {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+}
+
+/* ── Retícula y espacios ──────────────────── */
+.dos { display: grid; grid-template-columns: var(--col-izq, minmax(0, 1fr)) minmax(0, 1fr); column-gap: var(--hueco); }
+.bloque + .bloque { margin-top: var(--e2); }
+.lista { display: flex; flex-direction: column; gap: var(--e1); }
+.lista li, .lista div { display: flex; flex-direction: column; }
+.texto { max-width: 60ch; }
+.etiqueta + .lista { margin-top: var(--e1); }
+.alinear-abajo { align-self: end; }
+.credito { margin-top: var(--e1); }
+
+/* Filas tipo ficha: concepto en la mitad izquierda | contenido en la mitad derecha */
+.filas { display: flex; flex-direction: column; gap: var(--e1); }
+.dos + .filas { margin-top: var(--e2); }
+.filas > div { display: grid; grid-template-columns: var(--col-izq, minmax(0, 1fr)) minmax(0, 1fr); column-gap: var(--hueco); align-items: baseline; }
+.filas > div + div:has(dd.lista), .filas > div:has(dd.lista) + div { margin-top: calc(var(--e2) - var(--e1)); }
+.filas dd.lista p + p { margin-top: var(--e1); }
+.a-la-derecha { text-align: right; }
+
+/* Acomodo por pantallas (Archivo y Entrada): cada sección .paso es una pantalla;
+   el deslizamiento suave lo hace lib/pasos.js (también con el dedo en el teléfono). */
+html.con-pasos, html.con-pasos body { overscroll-behavior: none; touch-action: pinch-zoom; }
+
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+@keyframes desaparecer { from { opacity: 1; } to { opacity: 0; } }
+/* al abrir el sitio (la primera vez que carga), todo aparece suavemente: nombre, menú, contenido y pie */
+#root { animation: aparecer .9s .1s ease both; }
+/* al dejar una página, su contenido se desvanece igual de suave (lib/router.jsx) */
+.saliendo > :not(.cabecera):not(.pie):not(.entrada__final):not(.archivo__indice),
+.saliendo > .entrada__final > :not(.pie), .saliendo > .archivo__indice > :not(.pie) { animation: desaparecer .25s ease both !important; }
+/* llegando del inicio: el contenido espera escondido a que el nombre termine de subir (lib/llegada.js) */
+html.llegando .aparecer > :not(.cabecera):not(.pie):not(.entrada__rotulo) { animation: none; opacity: 0; }
+html.tras-salida .aparecer > :not(.cabecera):not(.pie):not(.entrada__rotulo) { animation-delay: 0s; animation-duration: .4s; }
+/* al cambiar de página solo aparece el contenido; cabecera y pie se quedan fijos */
+.aparecer > :not(.cabecera):not(.pie):not(.entrada__rotulo) { animation: aparecer .5s .3s ease both; }
+
+.menu { position: relative; display: flex; justify-content: space-between; }
+/* Menú alineado con el nombre, igual que el pie: Archivo bajo "HE", Estudio en la línea de "RO", Contacto bajo "A" */
+.menu a:nth-child(2) { position: absolute; left: calc(var(--linea-ro, 50%) - var(--margen)); }
+.idioma { display: inline-flex; gap: 6px; }
+
+/* ── Cabecera: el nombre al tamaño del inicio, igual en todas las páginas ─ */
+.cabecera {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; overflow: visible;
+  padding: var(--margen) var(--margen) 18px; background: transparent;   /* transparente: las imágenes pasan por detrás */
+}
+.cabecera__letras, .inicio__nombre {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-weight: 700; line-height: .85; letter-spacing: .01em; font-size: var(--t1);
+}
+.cabecera__menu, .inicio__centro .menu { margin-top: clamp(16px, 1.6vw, 26px); }
+
+/* ── Pie: igual en todas las páginas ─────── */
+.pie { position: relative; display: flex; justify-content: space-between; align-items: baseline; padding: 0 var(--margen) var(--margen); }
+.pie__ro { position: absolute; left: 50%; }   /* alineado con "RO" (lo mide Pie.jsx) */
+
+/* ── Inicio ───────────────────────────────── */
+.inicio { position: relative; height: 100svh; min-height: 420px; }
+/* el nombre queda exactamente al centro de la página; el menú cuelga debajo */
+.inicio__centro { position: absolute; left: var(--margen); right: var(--margen); top: calc(50% - var(--t1) * 0.425); }
+.inicio > .pie { position: absolute; left: 0; right: 0; bottom: 0; }
+
+/* ── Páginas ──────────────────────────────── */
+.pagina { min-height: 100svh; display: flex; flex-direction: column; }
+.pagina > .pie { margin-top: auto; }
+.pagina__cuerpo { padding: 0 var(--margen); }
+.pagina > .pagina__cuerpo:first-of-type { padding-top: calc(var(--cabecera) + var(--e2)); }
+.pagina > .pagina__cuerpo:last-of-type { padding-bottom: var(--e3); }
+
+/* ── Archivo: el campo ──────────────────── */
+.archivo__campo { height: 100svh; min-height: 480px; display: flex; flex-direction: column; padding: var(--cabecera) 0 var(--margen); }
+.archivo__indice { min-height: 100svh; display: flex; flex-direction: column; padding-top: calc(var(--cabecera) + var(--e2)); }
+.archivo__indice > .pie { margin-top: auto; }
+.archivo__indice > .indice { margin-bottom: var(--e3); }
+.campo { position: relative; flex: 1; min-height: 0; touch-action: manipulation; }
+.campo__pieza { position: absolute; left: 0; top: 0; padding: 0; transition: opacity .35s ease; }
+.campo__pieza img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
+.campo__pieza--imagen img { object-fit: cover; }
+.campo.is-hover .campo__pieza { opacity: .1; }
+.campo.is-hover .campo__pieza.is-activo { opacity: 1; }
+
+/* Índice: categoría (mitad izquierda) | entradas (mitad derecha), como Estudio y Contacto */
+.indice { padding: 0 var(--margen); }
+.indice dt { transition: opacity .3s; }
+.indice .is-apagado { opacity: .2; }
+.indice__entradas { display: flex; flex-direction: column; gap: var(--e1); }
+.indice__entrada { display: flex; flex-direction: column; transition: opacity .3s; }
+.indice__entrada.is-apagado { opacity: .2; }
+
+.vuelo { position: fixed; z-index: 100; pointer-events: none; background: #fff;
+  transition: left .65s cubic-bezier(.6,0,.2,1), top .65s cubic-bezier(.6,0,.2,1), width .65s cubic-bezier(.6,0,.2,1), height .65s cubic-bezier(.6,0,.2,1); }
+.vuelo img { width: 100%; height: 100%; object-fit: cover; }
+.vuelo--dibujo img { object-fit: contain; }
+
+/* ── Entrada ─────────────────────────────
+   Ficha → carrusel (una pantalla por registro) → navegación y pie; todo por pantallas. */
+.entrada__ficha > .pagina__cuerpo { padding-top: calc(var(--cabecera) + var(--e2)); }
+.entrada__ficha { margin-bottom: calc(var(--e4) - var(--margen) - var(--sube-primero, 0px)); position: relative; z-index: 1; }
+.registro__lugar { display: flex; align-items: center; height: 100%; }       /* centrado en su caja */
+.registro__img { display: block; flex: none; padding: 0; background: #fff; cursor: zoom-in; }
+.registro__img img { width: 100%; height: 100%; object-fit: cover; }
+.registro__img.is-dibujo img { object-fit: contain; object-position: left bottom; }
+
+/* Pantallas de registros: todas iguales */
+.registros { position: relative; }
+.registro { position: relative; height: calc(100svh - var(--cabecera)); overflow: hidden; padding-top: var(--margen); contain: layout paint; }
+.registro__fila { height: var(--caja); padding: 0 var(--margen); }
+.entrada__final { position: relative; z-index: 1; margin-top: var(--final-margen, var(--e4)); }
+.entrada__final .navegacion { padding: 0 var(--margen); margin-bottom: var(--e3); }
+
+/* "Registro 03 / 16": fijo abajo, con el margen de la página; solo dentro del carrusel */
+.entrada__rotulo { position: fixed; z-index: 4; left: var(--linea-ro, calc(50% + var(--hueco) / 2)); right: var(--margen);
+  bottom: var(--margen); height: var(--rotulo); display: flex; justify-content: space-between; align-items: baseline;
+  opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+.entrada__rotulo.is-visible { opacity: 1; transition-duration: .4s; }
+
+/* columna de miniaturas (mitad izquierda), fija mientras se recorren los registros */
+.registros__columna { position: absolute; top: 0; bottom: 0; left: var(--margen); width: 60px; pointer-events: none; z-index: 3; opacity: 0; transition: opacity .3s ease; }
+.registros__columna.is-visible { opacity: 1; }   /* solo dentro del carrusel, como el rótulo */
+.registros__columna:not(.is-visible) .registros__lista { pointer-events: none; }
+.registros__minis { position: sticky; top: var(--cabecera); height: calc(100svh - var(--cabecera)); overflow: hidden;
+  -webkit-mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); }
+.registros__lista { position: absolute; left: 0; top: 50%; transition: transform .5s cubic-bezier(.3,0,.2,1); pointer-events: auto; will-change: transform; }
+.registros__mini { position: absolute; left: 0; display: block; padding: 0; opacity: .3; transition: opacity .3s; }
+.registros__mini img { width: 100%; height: 100%; object-fit: cover; }
+.registros__mini.is-actual, .registros__mini:hover { opacity: 1; }
+
+/* ── Visor ────────────────────────────────── */
+.visor { position: fixed; inset: 0; z-index: 200; background: #fff; animation: aparecer .6s cubic-bezier(.65,0,.35,1) both; }
+.visor__imagen img { animation: aparecer .6s cubic-bezier(.65,0,.35,1) both; }
+.visor__barra { position: absolute; inset: 0 0 auto 0; height: var(--cabecera); display: flex; justify-content: space-between; align-items: center; padding: 0 var(--margen); z-index: 2; }
+.visor__imagen { position: absolute; inset: var(--cabecera) var(--margen) var(--margen); }
+.visor__imagen img { width: 100%; height: 100%; object-fit: contain; }
+.visor__ant, .visor__sig { position: absolute; top: 0; bottom: 0; width: 50%; }
+.visor__ant { left: 0; cursor: w-resize; }
+.visor__sig { right: 0; cursor: e-resize; }
+
+/* ── Teléfono ─────────────────────────────── */
+@media (max-width: 760px) {
+  :root { --t3: 12px; --e1: 10px; --e2: 40px; --e3: 50px; --margen: 20px; --hueco: 14px; }   /* 70 % (ver arriba) */
+  .pagina__cuerpo .dos { grid-template-columns: minmax(0, 1fr); row-gap: var(--e2); }
+  .pagina__cuerpo.dos { grid-template-columns: minmax(0, 1fr); row-gap: var(--e2); }
+  .alinear-abajo:empty { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aparecer > *, .visor, #root { animation: none; }
+  .vuelo { transition: none; }
+}
+@media (max-width: 760px) {
+  .pagina__cuerpo > .dos:first-child { row-gap: var(--e2); }
+  .registros__columna { display: none; }
+  .entrada__rotulo { left: var(--margen); }
+  .registro__fila.dos { grid-template-columns: minmax(0, 1fr); }
+  .registro__fila > div:first-child { display: none; }
+}
+.cabecera__nombre { display: block; }

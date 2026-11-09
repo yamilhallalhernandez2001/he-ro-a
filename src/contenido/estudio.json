@@ -1,0 +1,36 @@
+{
+  "texto": {
+    "es": "HE RO A es un estudio de arquitectura con sede en Guadalajara, México.",
+    "en": "HE RO A is an architecture studio based in Guadalajara, Mexico."
+  },
+  "equipo": [
+    {
+      "nombre": "Diego Hernández Rodríguez",
+      "cargo": {
+        "es": "Fundador y Arquitecto Principal",
+        "en": "Founder and Lead Architect"
+      },
+      "formacion": {
+        "es": "Egresado del Tecnológico de Monterrey (Campus Guadalajara)",
+        "en": "Graduate of Tecnológico de Monterrey (Guadalajara Campus)"
+      }
+    }
+  ],
+  "publicaciones": [
+    {
+      "medio": "RTF (Rethinking the Future)",
+      "titulo": "Arco 17 by HE RO A",
+      "url": "https://www.re-thinkingthefuture.com/architecture/cultural/10329-arco-17-by-heroa/"
+    },
+    {
+      "medio": "RTF (Rethinking the Future)",
+      "titulo": "Pavilion NBNN by HeroAzano (HE RO A + Azano Moritani)",
+      "url": "https://www.re-thinkingthefuture.com/temporary-structure/12350-pavilion-nbnn-by-heroazano-he-ro-a-azano-moritani/"
+    },
+    {
+      "medio": "Architizer",
+      "titulo": "Mesina 3190 — HE RO A",
+      "url": "https://architizer.com/projects/mesina-3190/"
+    }
+  ]
+}
